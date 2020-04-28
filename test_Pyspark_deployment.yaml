@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyspark-deployment-new-v2
+spec:
+  selector:
+    matchLabels:
+      app: test-pyspark-new-v2
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: test-pyspark-new-v2
+    spec:
+      containers:
+      - name: test-pyspark-dep-new-v2
+        image: test-pyspark-new-v2
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
